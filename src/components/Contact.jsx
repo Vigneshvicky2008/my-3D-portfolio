@@ -8,10 +8,6 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 
-// service_qb3ircf
-// template_hf14wcp
-// ioZg0dZo-gmMaWxvQ
-
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -37,9 +33,9 @@ const Contact = () => {
     setLoading(true);
 
     emailjs
-      .send(
-        'service_qb3ircf',
-        'template_hf14wcp',
+     .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Vicky",
@@ -47,7 +43,7 @@ const Contact = () => {
           to_email: "lovablelovelyvicky@gmail.com",
           message: form.message,
         },
-        'ioZg0dZo-gmMaWxvQ'
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
